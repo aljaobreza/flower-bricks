@@ -1,0 +1,215 @@
+body{
+	background-image: url(../photos/background1.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%; 
+	background-position: center;
+	background-repeat: no-repeat;	
+	color: #9b8ece;
+}
+
+@font-face {
+    font-family: 'quiteMagical';
+    src: url(../fonts/QuiteMagical.ttf);
+}
+
+#title{
+	font-family: quiteMagical;
+	font-size: 90px;
+	color: #fef3ff;
+	margin: 0;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	
+	 -webkit-animation: moving 1.5s;
+}
+
+@-webkit-keyframes moving {
+    from {top: 0px;}
+    to {top: 15%;}
+}
+
+#wrapper{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0.95;
+	width: 670px;
+	height: 500px;
+}
+
+#main{
+	position: absolute;
+	float: left;
+	border: solid 4px;
+	border-color: #9b8ece;
+	background-color: white;
+	border-radius: 15px;
+}
+
+#side{
+	position: relative;
+	border: solid 4px;
+	border-color: #9b8ece;
+	background-color: white;
+	float: right;
+	width: 150px;
+	height: 500px;
+	border-radius: 15px;
+}
+
+#menu{
+	width: 662px;
+	height: 500px;
+	background-color: white;
+	position: absolute;
+	border: solid 4px;
+	border-color: #9b8ece;
+	border-radius: 15px;
+}
+
+#start, #menu1, #menu2, #menu3{
+	margin: 0;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	
+	font-family: quiteMagical;
+	background-color: #9b8ece;
+	border: none;
+	color: #fef3ff;
+	padding: 10px 28px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 22px;
+	cursor: pointer;
+}
+
+#easy, #medium, #hard{
+	margin: 0;
+	position: absolute;
+	top: 60%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: quiteMagical;
+	font-size: 23px;
+}
+
+#select{
+	margin: 0;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: quiteMagical;
+	font-size: 43px;
+}
+
+#easy{
+	left: 30%;
+}
+
+#medium{
+	left: 50%;
+}
+
+#hard{
+	left: 70%;
+	width: 50px;
+}
+
+#question{
+	font-size: 25px;
+	position: relative;
+	top: 1%;
+	width: 20px;
+}
+
+#tutorialScreen, #failScreen, #victoryScreen{
+	width: 662px;
+	height: 500px;
+	background-color: white;
+	position: absolute;
+	border: solid 4px;
+	border-color: #9b8ece;
+	border-radius: 15px;
+}
+
+
+.diff{
+	position: absolute;
+	bottom: 27px;
+}
+#easyDiff:hover{	
+	transform: scale(1.45); 
+	transition: 0.6s;	
+}
+#mediumDiff:hover{	
+	transform: scale(1.4); 
+	transition: 0.6s;
+}
+#hardDiff:hover{	
+	transform: scale(1.25); 
+	transition: 0.6s;
+}
+
+#question:hover, #hard:hover, #medium:hover, #easy:hover{
+	transition: 0.5s;
+	color: #f0dcf2;
+	cursor: pointer;
+}
+
+#start:hover, #menu1:hover,#menu2:hover, #menu3:hover{
+	transition: 0.4s;
+	background-color: #f0dcf2;
+}
+
+#minute{
+	font-size: 22px;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	font-family: quiteMagical;
+}
+
+#sekunde{
+	font-size: 22px;
+	position: absolute;
+	top: 5%;
+	left: 25%;
+	font-family: quiteMagical;
+}
+
+#fail, #victory, #tutorial{
+	margin: 0;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: quiteMagical;
+	font-size: 43px;
+}
+
+.txt{
+	width: 450px;
+	margin: 0;
+	position: relative;
+	top: 33%;
+	left: 50%;
+	-ms- transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: quiteMagical;
+	font-size: 25px;
+}
