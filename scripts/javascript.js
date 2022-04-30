@@ -51,18 +51,30 @@ function drawIt(){
 	var minute = document.getElementById("minute");
 	var sekunde = document.getElementById("sekunde");
 	var vs = 0;
-	setInterval(setTime, 1000);
 	
-	function setTime(){
+	var points = 0;
+	var tocke = document.getElementById("tocke");
+	
+	var minuteEnd = document.getElementById("minutes");
+	var sekundeEnd = document.getElementById("seconds");
+	var tockeEnd = document.getElementById("points");
+	
+	
+	var myTimer= setInterval( function(){
 		if(start==true){
 			++vs;
 			sekunde.innerHTML = pad(vs % 60);
 			minute.innerHTML = pad(parseInt(vs / 60));
+			tocke.innerHTML = points;
+			
+			sekundeEnd.innerHTML = pad(vs % 60);
+			minuteEnd.innerHTML = pad(parseInt(vs / 60));
+			tockeEnd.innerHTML = points;
 		}
 		else{
 			sekunde=0;
 		}
-	}
+	}, 1000);
 	
 	function pad(val){
 		var valString = val + "";
@@ -74,7 +86,7 @@ function drawIt(){
 		}
 	}
 	
-	function init() {
+	function init(){
 
 		ctx = $('#main')[0].getContext("2d");
 		width = $("#main").width();
@@ -113,7 +125,7 @@ function drawIt(){
 		paddlew = 100;
 	}
 	
-	function draw() {
+	function draw(){
 		/*risanje zogice*/
 		clear();
 		circle(x, y, 15);
@@ -156,18 +168,22 @@ function drawIt(){
 				dy = -dy;
 				bricks[row][col] = 0;				
 				st--;
+				points++;
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 2){
 				dy = -dy;
 				bricks[row][col] = 1;
+				points = points+2;
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 3){
 				dy = -dy;
 				bricks[row][col] = 2;
+				poins = points+3;
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 4){
 				dy = -dy;
 				bricks[row][col] = 3;
+				points = points+4;
 		}
 		if(st==0){
 			mainCanvas.setAttribute("hidden", "hidden");
@@ -210,7 +226,7 @@ function drawIt(){
 				mainCanvas.setAttribute("hidden", "hidden");
 				sideCanvas.setAttribute("hidden", "hidden");
 				fail.removeAttribute("hidden");
-							
+				clearInterval(myTimer);			
 			}
 		}
 
@@ -366,4 +382,15 @@ menu2.addEventListener('click', function() {
 menu3.addEventListener('click', function() {
 		location.reload();
 });
+
+/*active difficulty*/
+var btns = document.getElementsByClassName("diff");
+
+for (var i = 0; i < btns.length; i++) {
+	btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 

@@ -17,6 +17,8 @@
 				<i class="fa fa-fw fa-question"></i>
 			</div>
 			<div id="select">Select a difficulty</div>
+			<div id="placeholder" class="diff active">
+			</div>
 			<div id="easy">
 				<img id="easyDiff" class="diff" src="photos/flowerEasy.png" width="28"><br />
 				easy
@@ -46,13 +48,30 @@
 		</div>
 		
 		<div id="victoryScreen" hidden>
-			<div id="victory">Good job, you won!</div><br />
+			<div id="victory">Good job, you won!</div>
+			<div id="yourTime" class="txt">your time: </div><div id="minutes" class="txt">00</div><div id="seconds" class="txt">00</div>
+			<div id="yourPoints" class="txt">your points: </div><div id="points" class="txt">0</div>
+			<div id="bestTime" class="txt">best time: </div><div id="bestMinutes" class="txt">00</div><div id="bestSeconds" class="txt">00</div>
 			<button id="menu2">MENU</button>
 		</div>
 		
 		<canvas id = "main" width="500px" height="500px" hidden></canvas>
 		<div id ="side" hidden>
-			<div id="minute">00</div><div id="sekunde">00</div>
+			<div id="timeTitle">Time:</div>
+			<div id="pointsTitle">Points:</div>
+			<div id="minute" class="minute">00</div><div id="sekunde" class="sekunde">00</div>
+			<div id="tocke">0</div><br />
+			<div id="guide">
+				<div id="pointsGuideTitle">Points guide:</div>
+					<img id="onePoint" src="photos/flowers/flower1.png" width="32"></img>
+						<div id="one">= 1 point</div>
+					<img id="twoPoint" src="photos/flowers/flower2.png" width="32"></img>
+						<div id="two">= 2 points</div>
+					<img id="threePoint" src="photos/flowers/flower3.png" width="35"></img>
+						<div id="three">= 3 points</div>	
+					<img id="fourPoint" src="photos/flowers/flower4.png" width="35"></img>
+						<div id="four">= 4 points</div>
+			</div>
 		</div>		
 		
 	</div>	
