@@ -59,6 +59,8 @@ function drawIt(){
 	var sekundeEnd = document.getElementById("seconds");
 	var tockeEnd = document.getElementById("points");
 	
+	var minuteBest = document.getElementById("bestMinutes");
+	var sekundeBest = document.getElementById("bestSeconds");
 	
 	var myTimer= setInterval( function(){
 		if(start==true){
@@ -189,6 +191,9 @@ function drawIt(){
 			mainCanvas.setAttribute("hidden", "hidden");
 			sideCanvas.setAttribute("hidden", "hidden");
 			victory.removeAttribute("hidden");
+			mainUI.setAttribute("hidden", "hidden");
+			bestTime();
+			clearInterval(myTimer);	
 		}
 			
 		
@@ -225,8 +230,8 @@ function drawIt(){
 			else{		
 				mainCanvas.setAttribute("hidden", "hidden");
 				sideCanvas.setAttribute("hidden", "hidden");
-				fail.removeAttribute("hidden");
-				clearInterval(myTimer);			
+				mainUI.setAttribute("hidden", "hidden");
+				fail.removeAttribute("hidden");				
 			}
 		}
 
@@ -234,6 +239,49 @@ function drawIt(){
 		x += dx;
 		y += dy;
 
+	}
+	
+	function bestTime(){	
+		if(diff == 1){
+			if(parseInt(minuteEnd.innerHTML) == 0){
+				localStorage.setItem("seconds", sekundeEnd.innerHTML);
+				localStorage.setItem("minutes", minuteEnd.innerHTML);
+			}
+			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutes")))
+				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("seconds"))){
+					localStorage.setItem("seconds", sekundeEnd.innerHTML);
+					localStorage.setItem("minutes", minuteEnd.innerHTML);
+				}
+			sekundeBest.innerHTML = localStorage.getItem("seconds");
+			minuteBest.innerHTML = localStorage.getItem("minutes");
+		}		
+		if(diff == 2){
+			if(parseInt(minuteEnd.innerHTML) == 0){
+				localStorage.setItem("secondsMedium", sekundeEnd.innerHTML);
+				localStorage.setItem("minutesMedium", minuteEnd.innerHTML);
+			}
+			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutesMedium")))
+				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("secondsMedium"))){
+					localStorage.setItem("secondsMedium", sekundeEnd.innerHTML);
+					localStorage.setItem("minutesMedium", minuteEnd.innerHTML);
+				}
+			sekundeBest.innerHTML = localStorage.getItem("secondsMedium");
+			minuteBest.innerHTML = localStorage.getItem("minutesMedium");
+		}
+		if(diff == 3){
+			if(parseInt(minuteEnd.innerHTML) == 0){
+				localStorage.setItem("secondsHard", sekundeEnd.innerHTML);
+				localStorage.setItem("minutesHard", minuteEnd.innerHTML);
+			}
+			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutesHard")))
+				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("secondsHard"))){
+					localStorage.setItem("secondsHard", sekundeEnd.innerHTML);
+					localStorage.setItem("minutesHard", minuteEnd.innerHTML);
+				}
+			sekundeBest.innerHTML = localStorage.getItem("secondsHard");
+			minuteBest.innerHTML = localStorage.getItem("minutesHard");
+		}
+		
 	}
 	
 	/*nastavljanje leve in desne tipke*/
@@ -317,22 +365,20 @@ function drawIt(){
 		initBricksMedium();
 	if(diff == 3)
 		initBricksHard();
-	
-	
 
 }
 
 var diff;
 
-easy.addEventListener('click', function() {
+easyDiff.addEventListener('click', function() {
 	diff = 1;
 });
 
-medium.addEventListener('click', function() {
+mediumDiff.addEventListener('click', function() {
 	diff = 2;
 });
 
-hard.addEventListener('click', function() {
+hardDiff.addEventListener('click', function() {
 	diff = 3;
 });
 
@@ -341,17 +387,20 @@ start.addEventListener('click', function() {
 		let menu = document.getElementById("menu");
 		let mainCanvas = document.getElementById("main");
 		let sideCanvas = document.getElementById("side");
+		let mainUI = document.getElementById("mainUI");
 		let hidden = mainCanvas.getAttribute("hidden");
 
 		if(!hidden) {
 		   mainCanvas.removeAttribute("hidden");
 		   sideCanvas.removeAttribute("hidden");
+		   mainUI.removeAttribute("hidden");
 		   menu.setAttribute("hidden", "hidden");
 		   drawIt();
 		} 
 		else {
 		   mainCanvas.setAttribute("hidden", "hidden");
 		   sideCanvas.setAttribute("hidden", "hidden");
+		   mainUI.setAttribute("hidden", "hidden");
 		}
 	}
 });
@@ -372,16 +421,22 @@ question.addEventListener('click', function() {
 });
 
 menu1.addEventListener('click', function() {
-		location.reload();
+	location.reload();
 });
 
 menu2.addEventListener('click', function() {
-		location.reload();
+	location.reload();
 });
 
 menu3.addEventListener('click', function() {
-		location.reload();
+	location.reload();
 });
+
+returnUI.addEventListener('click', function() {
+	location.reload();
+});
+
+
 
 /*active difficulty*/
 var btns = document.getElementsByClassName("diff");
@@ -393,4 +448,6 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+
+
 

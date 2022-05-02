@@ -129,7 +129,7 @@ body{
 	width: 50px;
 }
 
-#question{
+#question, #returnUI{
 	font-size: 25px;
 	position: relative;
 	top: 1%;
@@ -178,7 +178,7 @@ body{
 	transform: scale(1.25);
 }
 
-#question:hover, #hard:hover, #medium:hover, #easy:hover{
+#question:hover, #returnUI:hover, #hard:hover, #medium:hover, #easy:hover{
 	transition: 0.5s;
 	color: #f0dcf2;
 	cursor: pointer;
@@ -324,4 +324,10 @@ body{
 
 #bestMinutes, #bestSeconds{
 	top: 59.5%;
+}
+
+#returnUI{
+	position: absolute;
+	top: 94%;
+	left: 2%;
 }
