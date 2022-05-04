@@ -5,7 +5,7 @@ body{
 	height: 100%; 
 	background-position: center;
 	background-repeat: no-repeat;	
-	color: #9b8ece;
+	color: #b86198;
 }
 
 @font-face {
@@ -16,7 +16,7 @@ body{
 #title{
 	font-family: quiteMagical;
 	font-size: 90px;
-	color: #fef3ff;
+	color: #f4f4f6;
 	margin: 0;
 	position: absolute;
 	top: 15%;
@@ -48,7 +48,7 @@ body{
 	position: absolute;
 	float: left;
 	border: solid 4px;
-	border-color: #9b8ece;
+	border-color: #b86198;
 	background-color: white;
 	border-radius: 15px;
 }
@@ -56,7 +56,7 @@ body{
 #side{
 	position: relative;
 	border: solid 4px;
-	border-color: #9b8ece;
+	border-color: #b86198;
 	background-color: white;
 	float: right;
 	width: 150px;
@@ -70,7 +70,7 @@ body{
 	background-color: white;
 	position: absolute;
 	border: solid 4px;
-	border-color: #9b8ece;
+	border-color: #b86198;
 	border-radius: 15px;
 }
 
@@ -84,7 +84,7 @@ body{
 	border-radius: 15px;
 	
 	font-family: quiteMagical;
-	background-color: #9b8ece;
+	background-color:#b86198 ;
 	border: none;
 	color: #fef3ff;
 	padding: 10px 28px;
@@ -142,7 +142,7 @@ body{
 	background-color: white;
 	position: absolute;
 	border: solid 4px;
-	border-color: #9b8ece;
+	border-color: #b86198;
 	border-radius: 15px;
 }
 
@@ -180,13 +180,13 @@ body{
 
 #question:hover, #returnUI:hover, #hard:hover, #medium:hover, #easy:hover{
 	transition: 0.5s;
-	color: #f0dcf2;
+	color: #f6ddf8;
 	cursor: pointer;
 }
 
 #start:hover, #menu1:hover,#menu2:hover, #menu3:hover{
 	transition: 0.4s;
-	background-color: #f0dcf2;
+	background-color: #f6ddf8;
 }
 
 #minute, #sekunde, #tocke{
@@ -217,6 +217,10 @@ body{
 	transform: translate(-50%, -50%);
 	font-family: quiteMagical;
 	font-size: 43px;
+}
+
+#fail{
+	top: 45%;
 }
 
 .txt{
@@ -330,4 +334,14 @@ body{
 	position: absolute;
 	top: 94%;
 	left: 2%;
+}
+
+.bouquet{
+	position: absolute;
+	top: 55%;
+	left: 5%;
+}
+
+#bouquet2, #bouquet3, #bouquet4, #bouquet5{
+	opacity: 0;
 }

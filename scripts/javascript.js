@@ -62,6 +62,12 @@ function drawIt(){
 	var minuteBest = document.getElementById("bestMinutes");
 	var sekundeBest = document.getElementById("bestSeconds");
 	
+	var bouquet2 = document.getElementById("bouquet2");
+	var bouquet3 = document.getElementById("bouquet3");
+	var bouquet4 = document.getElementById("bouquet4");
+	var bouquet5 = document.getElementById("bouquet5");
+	
+	
 	var myTimer= setInterval( function(){
 		if(start==true){
 			++vs;
@@ -93,7 +99,7 @@ function drawIt(){
 		ctx = $('#main')[0].getContext("2d");
 		width = $("#main").width();
 		height = $("#main").height();
-		return setInterval(draw, 15);
+		return setInterval(draw, 18);
 	}
 	
 	/*za risanje zogice*/
@@ -101,7 +107,7 @@ function drawIt(){
 		ctx.beginPath();
 		ctx.arc(x, y, 10, 0, Math.PI*2, true);
 		ctx.closePath();
-		ctx.fillStyle = "#9b8ece";
+		ctx.fillStyle = "#b86198";
 		ctx.fill();
 	}
 	
@@ -110,7 +116,7 @@ function drawIt(){
 		ctx.beginPath();
 		ctx.rect(x,y,w,h);
 		ctx.closePath();
-		ctx.fillStyle = "#9b8ece";
+		ctx.fillStyle = "#b86198";
 		ctx.fill();
 	}
 	
@@ -171,21 +177,25 @@ function drawIt(){
 				bricks[row][col] = 0;				
 				st--;
 				points++;
+				showBouquet();
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 2){
 				dy = -dy;
 				bricks[row][col] = 1;
 				points = points+2;
+				showBouquet();
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 3){
 				dy = -dy;
 				bricks[row][col] = 2;
 				poins = points+3;
+				showBouquet();
 		}
 		if(y < nrows*rowheight && row >= 0 && col >= 0 && bricks[row][col] == 4){
 				dy = -dy;
 				bricks[row][col] = 3;
 				points = points+4;
+				showBouquet();
 		}
 		if(st==0){
 			mainCanvas.setAttribute("hidden", "hidden");
@@ -224,6 +234,7 @@ function drawIt(){
 		else if(y+dy > paddley-r){
 			start=false;
 			if(x > paddlex && x < paddlex+paddlew){
+				dx = 8*((x-(paddlex+paddlew/2))/paddlew);
 				dy = -dy;
 				start=true;
 			}
@@ -355,6 +366,25 @@ function drawIt(){
 		}
 	}
 	
+	function showBouquet(){
+		if(points >= points1){
+			bouquet2.style.transition = "opacity 2s"; 
+			bouquet2.style.opacity = "1";
+		}
+		if(points >= points2){
+			bouquet3.style.transition = "opacity 2s"; 
+			bouquet3.style.opacity = "1";
+		}
+		if(points >= points3){
+			bouquet4.style.transition = "opacity 2s"; 
+			bouquet4.style.opacity = "1";
+		}
+		if(points >= points4){
+			bouquet5.style.transition = "opacity 2s"; 
+			bouquet5.style.opacity = "1";
+		}
+	}
+	
 	init();	
 	
 	initPaddle();
@@ -369,17 +399,33 @@ function drawIt(){
 }
 
 var diff;
+var points1;
+var points2;
+var points3;
+var points4;
 
 easyDiff.addEventListener('click', function() {
 	diff = 1;
+	points1 = 9;
+	points2 = 18;
+	points3 = 27;
+	points4 = 32;
 });
 
 mediumDiff.addEventListener('click', function() {
 	diff = 2;
+	points1 = 20;
+	points2 = 40;
+	points3 = 60;
+	points4 = 75;
 });
 
 hardDiff.addEventListener('click', function() {
 	diff = 3;
+	points1 = 25;
+	points2 = 50;
+	points3 = 75;
+	points4 = 90;
 });
 
 start.addEventListener('click', function() {
