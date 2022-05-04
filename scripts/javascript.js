@@ -254,11 +254,11 @@ function drawIt(){
 	
 	function bestTime(){	
 		if(diff == 1){
-			if(parseInt(minuteEnd.innerHTML) == 0){
+			if(parseInt(minuteEnd.innerHTML) == 0 && parseInt(sekundeEnd.innerHTML) == 0){
 				localStorage.setItem("seconds", sekundeEnd.innerHTML);
 				localStorage.setItem("minutes", minuteEnd.innerHTML);
 			}
-			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutes")))
+			if(parseInt(minuteEnd.innerHTML) <= parseInt(localStorage.getItem("minutes")))
 				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("seconds"))){
 					localStorage.setItem("seconds", sekundeEnd.innerHTML);
 					localStorage.setItem("minutes", minuteEnd.innerHTML);
@@ -267,11 +267,11 @@ function drawIt(){
 			minuteBest.innerHTML = localStorage.getItem("minutes");
 		}		
 		if(diff == 2){
-			if(parseInt(minuteEnd.innerHTML) == 0){
+			if(parseInt(minuteEnd.innerHTML) == 0 && parseInt(sekundeEnd.innerHTML) == 0){
 				localStorage.setItem("secondsMedium", sekundeEnd.innerHTML);
 				localStorage.setItem("minutesMedium", minuteEnd.innerHTML);
 			}
-			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutesMedium")))
+			if(parseInt(minuteEnd.innerHTML) <= parseInt(localStorage.getItem("minutesMedium")))
 				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("secondsMedium"))){
 					localStorage.setItem("secondsMedium", sekundeEnd.innerHTML);
 					localStorage.setItem("minutesMedium", minuteEnd.innerHTML);
@@ -280,11 +280,11 @@ function drawIt(){
 			minuteBest.innerHTML = localStorage.getItem("minutesMedium");
 		}
 		if(diff == 3){
-			if(parseInt(minuteEnd.innerHTML) == 0){
+			if(parseInt(minuteEnd.innerHTML) == 0 && parseInt(sekundeEnd.innerHTML) == 0){
 				localStorage.setItem("secondsHard", sekundeEnd.innerHTML);
 				localStorage.setItem("minutesHard", minuteEnd.innerHTML);
 			}
-			if(parseInt(minuteEnd.innerHTML) < parseInt(localStorage.getItem("minutesHard")))
+			if(parseInt(minuteEnd.innerHTML) <= parseInt(localStorage.getItem("minutesHard")))
 				if(parseInt(sekundeEnd.innerHTML) < parseInt(localStorage.getItem("secondsHard"))){
 					localStorage.setItem("secondsHard", sekundeEnd.innerHTML);
 					localStorage.setItem("minutesHard", minuteEnd.innerHTML);
